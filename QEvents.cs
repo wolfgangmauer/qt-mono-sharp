@@ -357,9 +357,10 @@ namespace Qt
 
 		public IntPtr Handle { get; protected set;}
 
-		protected Event (IntPtr raw)
+		protected Event (IntPtr raw, EventType type)
 		{
 			Handle = raw;
+			Type = type;
 		}
 
 		public void Accept ()
@@ -374,9 +375,12 @@ namespace Qt
 
 		[MethodImpl (MethodImplOptions.InternalCall)]
 		protected static extern EventType qt_event_type_get(IntPtr raw);
+		[MethodImpl (MethodImplOptions.InternalCall)]
+		protected static extern void qt_event_type_set(IntPtr raw, EventType type);
 		public EventType Type
 		{
 			get{ return qt_event_type_get (Handle); }
+			private set { qt_event_type_set(Handle, value); }
 		}
 
 		[MethodImpl (MethodImplOptions.InternalCall)]
@@ -406,7 +410,9 @@ namespace Qt
 
 	public class ShowEvent : Event
 	{
-		protected ShowEvent (IntPtr raw) : base (raw)
+ 		[MethodImpl (MethodImplOptions.InternalCall)]
+		protected static extern IntPtr qt_event_new();
+		public ShowEvent () : base (raw)
 		{
 		}
 	}
