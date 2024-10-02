@@ -357,12 +357,17 @@ namespace Qt
 
 		public IntPtr Handle { get; protected set;}
 
-		protected Event (IntPtr raw, EventType type)
+		protected Event (IntPtr raw)
 		{
 			Handle = raw;
+		}
+		[MethodImpl (MethodImplOptions.InternalCall)]
+		protected static extern IntPtr qt_event_new(EventType type);
+		public Event (EventType type)
+		{
+			Handle = qt_event_new(type);
 			Type = type;
 		}
-
 		public void Accept ()
 		{
 			Accepted = true;
