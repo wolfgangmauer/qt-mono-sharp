@@ -414,9 +414,7 @@ namespace Qt
 
 	public class ShowEvent : Event
 	{
- 		[MethodImpl (MethodImplOptions.InternalCall)]
-		protected static extern IntPtr qt_event_new();
-		public ShowEvent () : base (raw)
+		protected ShowEvent (IntPtr raw) : base (raw)
 		{
 		}
 	}
