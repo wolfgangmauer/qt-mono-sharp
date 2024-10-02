@@ -400,54 +400,27 @@ namespace Qt
 			set { qt_event_accepted_set (Handle, value); }
 		}
 	}
-
 	public class CloseEvent : Event
 	{
-		protected CloseEvent (IntPtr raw) : base (raw)
+		public CloseEvent () : base (EventType.Close)
 		{
 		}
 	}
-
 	public class ShowEvent : Event
 	{
- 		[MethodImpl (MethodImplOptions.InternalCall)]
-		protected static extern IntPtr qt_event_new();
-		public ShowEvent () : base (raw)
+		public ShowEvent () : base (EventType.Show)
 		{
 		}
 	}
-
 	public class HideEvent : Event
 	{
-		protected HideEvent (IntPtr raw) : base (raw)
+		public HideEvent () : base (EventType.Hide)
 		{
 		}
 	}
-
-	public class DropEvent : Event
-	{
-		protected DropEvent (IntPtr raw) : base (raw)
-		{
-		}
-	}
-
-	public class DragMoveEvent : DropEvent
-	{
-		protected DragMoveEvent (IntPtr raw) : base (raw)
-		{
-		}
-	}
-
-	public class DragEnterEvent : DragMoveEvent
-	{
-		protected DragEnterEvent (IntPtr raw) : base (raw)
-		{
-		}
-	}
-
 	public class InputEvent : Event
 	{
-		protected InputEvent (IntPtr raw) : base (raw)
+		public InputEvent () : base (EventType.KeyPress)
 		{
 		}
 
@@ -471,100 +444,15 @@ namespace Qt
 			set { qt_inputevent_modifiers_set (Handle, value); }
 		}
 	}
-
-	public class TabletEvent : InputEvent
-	{
-		protected TabletEvent (IntPtr raw) : base (raw)
-		{
-		}
-	}
-
 	public class ActionEvent : Event
 	{
-		protected ActionEvent (IntPtr raw) : base (raw)
+		public ActionEvent () : base (EventType.Action)
 		{
 		}
 	}
-
-	public class ContextMenuEvent : InputEvent
-	{
-		public enum ReasonEnum
-		{
-			Mouse,
-			Keyboard,
-			Other
-		}
-		protected ContextMenuEvent (IntPtr raw) : base (raw)
-		{
-		}
-
-		[MethodImpl (MethodImplOptions.InternalCall)]
-		protected static extern ReasonEnum qt_contextmenuevent_reason_get(IntPtr raw);
-		public ReasonEnum Reason
-		{
-			get{ return qt_contextmenuevent_reason_get (Handle); }
-		}
-
-		[MethodImpl (MethodImplOptions.InternalCall)]
-		protected static extern IntPtr qt_contextmenuevent_pos_get(IntPtr raw);
-		public Point Pos
-		{
-			get{ return new Point(qt_contextmenuevent_pos_get (Handle)); }
-		}
-
-		[MethodImpl (MethodImplOptions.InternalCall)]
-		protected static extern IntPtr qt_contextmenuevent_globalpos_get(IntPtr raw);
-		public Point GlobalPos
-		{
-			get{ return new Point(qt_contextmenuevent_globalpos_get (Handle)); }
-		}
-	}
-
-	public class ResizeEvent : Event
-	{
-		protected ResizeEvent (IntPtr raw) : base (raw)
-		{
-		}
-
-		[MethodImpl (MethodImplOptions.InternalCall)]
-		protected static extern IntPtr qt_resizeevent_size_get(IntPtr raw);
-		public Size Size 
-		{
-			get{ return new Size(qt_resizeevent_size_get (Handle)); }
-		}
-
-		[MethodImpl (MethodImplOptions.InternalCall)]
-		protected static extern IntPtr qt_resizeevent_oldsize_get(IntPtr raw);
-		public Size OldSize 
-		{
-			get{ return new Size(qt_resizeevent_oldsize_get (Handle)); }
-		}
-	}
-
-	public class MoveEvent : Event
-	{
-		protected MoveEvent (IntPtr raw) : base (raw)
-		{
-		}
-
-		[MethodImpl (MethodImplOptions.InternalCall)]
-		protected static extern IntPtr qt_moveevent_pos_get(IntPtr raw);
-		public Point Pos 
-		{
-			get{ return new Point(qt_moveevent_pos_get (Handle)); }
-		}
-
-		[MethodImpl (MethodImplOptions.InternalCall)]
-		protected static extern IntPtr qt_moveevent_oldpos_get(IntPtr raw);
-		public Point OldPos
-		{
-			get{ return new Point(qt_moveevent_oldpos_get (Handle)); }
-		}
-	}
-
 	public class PaintEvent : Event
 	{
-		protected PaintEvent (IntPtr raw) : base (raw)
+		public PaintEvent () : base (EventType.Paint)
 		{
 		}
 
@@ -575,154 +463,6 @@ namespace Qt
 			get{ return new Rectangle(qt_paintevent_rect_get (Handle)); }
 		}
 	}
-
-	public class FocusEvent : Event
-	{
-		protected FocusEvent (IntPtr raw) : base (raw)
-		{
-		}
-
-		[MethodImpl (MethodImplOptions.InternalCall)]
-		protected static extern FocusReason qt_focusevent_reason_get(IntPtr raw);
-		public FocusReason Reason
-		{
-			get{ return qt_focusevent_reason_get (Handle); }
-		}
-	}
-
-	public class WheelEvent : InputEvent
-	{
-		protected WheelEvent (IntPtr raw) : base (raw)
-		{
-		}
-
-		[MethodImpl (MethodImplOptions.InternalCall)]
-		protected static extern bool qt_wheelevent_inverted_get(IntPtr raw);
-		public bool Inverted
-		{
-			get{ return qt_wheelevent_inverted_get (Handle); }
-		}
-
-		[MethodImpl (MethodImplOptions.InternalCall)]
-		protected static extern ScrollPhase qt_wheelevent_phase_get(IntPtr raw);
-		public ScrollPhase Phase
-		{
-			get{ return qt_wheelevent_phase_get (Handle); }
-		}
-
-		[MethodImpl (MethodImplOptions.InternalCall)]
-		protected static extern int qt_wheelevent_delta_get(IntPtr raw);
-		public int Delta
-		{
-			get{ return qt_wheelevent_delta_get (Handle); }
-		}
-
-		[MethodImpl (MethodImplOptions.InternalCall)]
-		protected static extern Orientation qt_wheelevent_orientation_get(IntPtr raw);
-		public Orientation Orientation
-		{
-			get{ return qt_wheelevent_orientation_get (Handle); }
-		}
-
-		[MethodImpl (MethodImplOptions.InternalCall)]
-		protected static extern MouseEventSource qt_wheelevent_source_get(IntPtr raw);
-		public MouseEventSource Source
-		{
-			get{ return qt_wheelevent_source_get (Handle); }
-		}
-
-		[MethodImpl (MethodImplOptions.InternalCall)]
-		protected static extern IntPtr qt_wheelevent_pixeldelta_get(IntPtr raw);
-		public PointF PixelDelta
-		{
-			get{ return new PointF(qt_wheelevent_pixeldelta_get (Handle)); }
-		}
-
-		[MethodImpl (MethodImplOptions.InternalCall)]
-		protected static extern IntPtr qt_wheelevent_angledelta_get(IntPtr raw);
-		public PointF AngleDelta
-		{
-			get{ return new PointF(qt_wheelevent_angledelta_get (Handle)); }
-		}
-
-		[MethodImpl (MethodImplOptions.InternalCall)]
-		protected static extern IntPtr qt_wheelevent_posf_get(IntPtr raw);
-		public PointF PosF
-		{
-			get{ return new PointF(qt_wheelevent_posf_get (Handle)); }
-		}
-
-		[MethodImpl (MethodImplOptions.InternalCall)]
-		protected static extern IntPtr qt_wheelevent_globalposf_get(IntPtr raw);
-		public PointF GlobalPosF
-		{
-			get{ return new PointF(qt_wheelevent_globalposf_get (Handle)); }
-		}
-
-		[MethodImpl (MethodImplOptions.InternalCall)]
-		protected static extern MouseButton qt_wheelevent_buttons_get(IntPtr raw);
-		public MouseButton Buttons
-		{
-			get{ return qt_wheelevent_buttons_get (Handle); }
-		}
-	}
-
-	public class MouseEvent : InputEvent
-	{
-		protected MouseEvent (IntPtr raw) : base (raw)
-		{
-		}
-
-		[MethodImpl (MethodImplOptions.InternalCall)]
-		protected static extern MouseEventSource qt_mouseevent_source_get(IntPtr raw);
-		public MouseEventSource Source
-		{
-			get{ return qt_mouseevent_source_get (Handle); }
-		}
-
-		[MethodImpl (MethodImplOptions.InternalCall)]
-		protected static extern MouseEventFlag qt_mouseevent_flags_get(IntPtr raw);
-		public MouseEventFlag Flags
-		{
-			get{ return qt_mouseevent_flags_get (Handle); }
-		}
-
-		[MethodImpl (MethodImplOptions.InternalCall)]
-		protected static extern MouseButton qt_mouseevent_button_get(IntPtr raw);
-		public MouseButton Button
-		{
-			get{ return qt_mouseevent_button_get (Handle); }
-		}
-
-		[MethodImpl (MethodImplOptions.InternalCall)]
-		protected static extern MouseButton qt_mouseevent_buttons_get(IntPtr raw);
-		public MouseButton Buttons
-		{
-			get{ return qt_mouseevent_buttons_get (Handle); }
-		}
-
-		[MethodImpl (MethodImplOptions.InternalCall)]
-		protected static extern IntPtr qt_mouseevent_localpos_get(IntPtr raw);
-		public PointF LocalPos
-		{
-			get{ return new PointF(qt_mouseevent_localpos_get (Handle)); }
-		}
-
-		[MethodImpl (MethodImplOptions.InternalCall)]
-		protected static extern IntPtr qt_mouseevent_windowpos_get(IntPtr raw);
-		public PointF WindowPos
-		{
-			get{ return new PointF(qt_mouseevent_windowpos_get (Handle)); }
-		}
-
-		[MethodImpl (MethodImplOptions.InternalCall)]
-		protected static extern IntPtr qt_mouseevent_screenpos_get(IntPtr raw);
-		public PointF ScreenPos
-		{
-			get{ return new PointF(qt_mouseevent_screenpos_get (Handle)); }
-		}
-	}
-
 	public class KeyEvent : InputEvent
 	{
 		protected KeyEvent (IntPtr raw) : base (raw)
