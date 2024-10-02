@@ -15,7 +15,7 @@ namespace Qt
         public CoreApplication(string[] argv) : base(IntPtr.Zero)
         {
 			if (!monointernal_init)
-				InitMonoInternal ();
+                InitQtMonoSharp();
             Raw = qt_coreapplication_new();
         }
 
@@ -41,7 +41,7 @@ namespace Qt
 			set
 			{
 				if (!monointernal_init)
-					InitMonoInternal ();
+                    InitQtMonoSharp();
 				qt_application_attribute_set (value);
 			}
 		}

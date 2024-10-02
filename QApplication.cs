@@ -13,7 +13,7 @@ namespace Qt
 		public Application(string[] argv) : base(IntPtr.Zero)
         {
 			if (!monointernal_init)
-				InitMonoInternal ();
+                InitQtMonoSharp();
 			var ass = Assembly.GetEntryAssembly ().CodeBase.Replace("file://", string.Empty);
 			var list = new List<string> (argv);
 			list.Insert (0, ass);
