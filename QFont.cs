@@ -11,6 +11,13 @@ namespace Qt
 {
     public class Font
     {
+        public enum Weight
+        {
+            Thin        = 100,
+            ExtraLight  = 200,
+            Light       = 300,
+            Normal      = 400,
+        };
 		public IntPtr Handle { get; private set;}
 
         [MethodImpl(MethodImplOptions.InternalCall)]
