@@ -17,5 +17,11 @@ namespace Qt
         {
             return qt_fontdatabase_add(font);
         }
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        protected static extern string[] qt_fontdatabase_get_fonts();
+        public static string[] GetApplicationFonts()
+        {
+            return qt_fontdatabase_get_fonts();
+        }
     }
 }
