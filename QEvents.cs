@@ -361,7 +361,13 @@ namespace Qt
 		{
 			Handle = raw;
 		}
-
+		[MethodImpl (MethodImplOptions.InternalCall)]
+		protected static extern IntPtr qt_event_new(EventType type);
+		public Event (EventType type)
+		{
+			Handle = qt_event_new(type);
+			Type = type;
+		}
 		public void Accept ()
 		{
 			Accepted = true;
@@ -374,9 +380,12 @@ namespace Qt
 
 		[MethodImpl (MethodImplOptions.InternalCall)]
 		protected static extern EventType qt_event_type_get(IntPtr raw);
+		[MethodImpl (MethodImplOptions.InternalCall)]
+		protected static extern void qt_event_type_set(IntPtr raw, EventType type);
 		public EventType Type
 		{
 			get{ return qt_event_type_get (Handle); }
+			private set { qt_event_type_set(Handle, value); }
 		}
 
 		[MethodImpl (MethodImplOptions.InternalCall)]
@@ -396,7 +405,6 @@ namespace Qt
 			set { qt_event_accepted_set (Handle, value); }
 		}
 	}
-
 	public class CloseEvent : Event
 	{
 		protected CloseEvent (IntPtr raw) : base (raw)
