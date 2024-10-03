@@ -12,10 +12,10 @@ namespace Qt
     public class FontDatabase
     {
         [MethodImpl(MethodImplOptions.InternalCall)]
-        protected static extern void qt_fontdatabase_add(string font);
-        public static void AddApplicationFont(string font)
+        protected static extern int qt_fontdatabase_add(string font);
+        public static int AddApplicationFont(string font)
         {
-            qt_fontdatabase_add(font);
+            return qt_fontdatabase_add(font);
         }
     }
 }
