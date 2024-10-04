@@ -544,10 +544,16 @@ namespace Qt
 			return ev.Accepted;
 		}
 
+		static bool onInPaint = false;
 		private bool OnPaint(PaintEvent ev)
 		{
-			var tmp = PaintEvent;
-			tmp?.Invoke (this, ev);
+  			if (!onInPaint)
+     			{
+				onInPaint = true;
+				var tmp = PaintEvent;
+				tmp?.Invoke (this, ev);
+    				onInPaint = false;
+    			}
 			return ev.Accepted;
 		}
 
