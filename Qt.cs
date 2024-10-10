@@ -425,7 +425,7 @@ namespace Qt
 	}
 
     [Flags]
-    public enum WindowState : uint
+    public enum WindowStates : uint
     {
         WindowNoState = 0x00000000,
         WindowMinimized = 0x00000001,
