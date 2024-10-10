@@ -370,8 +370,17 @@ namespace Qt
 				qt_widget_font_set (Handle, value != null ? value.Handle : IntPtr.Zero);
 			}
 		}
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        protected static extern void qt_widget_windowstates_set(IntPtr raw, WindowStates states);
+        public WindowStates WindowStates
+        {
+            set
+            {
+                qt_widget_windowstates_set(Handle, value);
+            }
+        }
 
-		[MethodImpl (MethodImplOptions.InternalCall)]
+        [MethodImpl (MethodImplOptions.InternalCall)]
 		protected static extern void qt_widget_attribute_set (IntPtr raw, WidgetAttribute attribute);
 		public WidgetAttribute Attribute {
 			set {
