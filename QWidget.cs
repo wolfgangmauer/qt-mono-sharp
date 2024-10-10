@@ -371,12 +371,12 @@ namespace Qt
 			}
 		}
         [MethodImpl(MethodImplOptions.InternalCall)]
-        protected static extern void qt_widget_windowstates_set(IntPtr raw, WindowStates states);
-        public WindowStates WindowStates
+        protected static extern void qt_widget_windowstate_set(IntPtr raw, WindowStates states);
+        public WindowStates WindowState
         {
             set
             {
-                qt_widget_windowstates_set(Handle, value);
+                qt_widget_windowstate_set(Handle, value);
             }
         }
 
