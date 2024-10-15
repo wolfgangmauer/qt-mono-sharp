@@ -462,6 +462,20 @@ namespace Qt
 			}
 		}
 
+
+		[MethodImpl (MethodImplOptions.InternalCall)]
+		protected static extern bool qt_widget_updates_enabled_get (IntPtr raw);
+		[MethodImpl (MethodImplOptions.InternalCall)]
+		protected static extern void qt_widget_updates_enabled_set (IntPtr raw, bool enabled);
+    		public bool UpdatesEnabled {
+			get {
+				return qt_widget_updates_enabled_get (Handle);
+			}
+			set {
+				qt_widget_updates_enabled_set (Handle, value);
+			}
+		}
+  
 		[MethodImpl (MethodImplOptions.InternalCall)]
 		protected static extern void qt_widget_adjustsize (IntPtr raw);
 		public void AdjustSize ()
