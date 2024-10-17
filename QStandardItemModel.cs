@@ -57,6 +57,12 @@ namespace Qt
     			return null;
 		}
 		[MethodImpl (MethodImplOptions.InternalCall)]
+		protected static extern string qt_standarditemmodel_data_row_col_get (IntPtr handle, int row, int col);
+		public string GetData(int row, int col)
+		{
+			return qt_standarditemmodel_data_row_col_get (Handle, row, col);
+		}
+  		[MethodImpl (MethodImplOptions.InternalCall)]
 		protected static extern void qt_standarditemmodel_data_row_col_set (IntPtr handle, int row, int col, string item);
 		public void SetData(int row, int col, string item)
 		{
