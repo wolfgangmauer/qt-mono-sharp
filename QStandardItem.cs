@@ -15,6 +15,11 @@ namespace Qt
 		{
 			raw = qt_standarditem_new (text);
 		}
+
+		public StandardItem (IntPtr raw)
+		{
+			raw = raw;
+		}
 	}
 }
 
