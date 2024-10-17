@@ -9,7 +9,7 @@ namespace Qt
 
 		[MethodImpl (MethodImplOptions.InternalCall)]
 		protected static extern IntPtr qt_standarditemmodel_new (StandardItemModel thisObject, IntPtr parent);
-		public StandardItemModel (Object parent) : base(IntPtr.Zero)
+		public StandardItemModel (Object parent = null) : base(IntPtr.Zero)
 		{
 			Raw = qt_standarditemmodel_new (this, parent != null ? parent.Handle : IntPtr.Zero);
 		}
