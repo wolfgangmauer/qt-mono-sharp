@@ -20,6 +20,16 @@ namespace Qt
 		{
 			raw = raw;
 		}
+
+		[MethodImpl (MethodImplOptions.InternalCall)]
+		protected static extern string qt_standarditem_text_get (IntPtr handle);
+		[MethodImpl (MethodImplOptions.InternalCall)]
+		protected static extern void qt_standarditem_text_set (IntPtr handle, string text);
+		public string Text
+		{
+			get { return qt_standarditem_text_get(raw); }
+			set { qt_standarditem_text_set(raw, value); }
+		}
 	}
 }
 
