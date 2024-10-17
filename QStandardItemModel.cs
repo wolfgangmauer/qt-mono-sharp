@@ -47,7 +47,12 @@ namespace Qt
 		{
 			qt_standarditemmodel_item_row_col_set (Handle, row, col, item.Handle);
 		}
-
+		[MethodImpl (MethodImplOptions.InternalCall)]
+		protected static extern void qt_standarditemmodel_data_row_col_set (IntPtr handle, int row, int col, string item);
+		public void SetData(int row, int col, string item)
+		{
+			qt_standarditemmodel_data_row_col_set (Handle, row, col, item);
+		}
 		[MethodImpl (MethodImplOptions.InternalCall)]
 		protected static extern void qt_standarditemmodel_item_append (IntPtr handle, IntPtr item);
 		public void AppendRow(StandardItem item)
