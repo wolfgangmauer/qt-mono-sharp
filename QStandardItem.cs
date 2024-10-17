@@ -18,6 +18,8 @@ namespace Qt
 
 		public StandardItem (IntPtr raw)
 		{
+			if (raw == IntPtr.Zero)
+				throw new ArgumentNullException(nameof(raw));
 			raw = raw;
 		}
 
