@@ -5,7 +5,7 @@ namespace Qt
 {
 	public class StandardItemModel : AbstractItemModel
 	{
-		public StandardItemModel (IntPtr raw) : base (raw) { }
+		protected StandardItemModel (IntPtr raw) : base (raw) { }
 
 		[MethodImpl (MethodImplOptions.InternalCall)]
 		protected static extern IntPtr qt_standarditemmodel_new (StandardItemModel thisObject, IntPtr parent);
