@@ -51,7 +51,10 @@ namespace Qt
 		protected static extern IntPtr qt_standarditemmodel_item_row_col_get (IntPtr handle, int row, int col);
 		public StandardItem GetItem(int row, int col)
 		{
-			return new StandardItem(qt_standarditemmodel_item_row_col_get (Handle, row, col));
+  			var standardItemPtr = qt_standarditemmodel_item_row_col_get (Handle, row, col);
+     			if (standardItemPtr != IntPtr.Zero)
+				return new StandardItem(standardItemPtr);
+    			return null;
 		}
 		[MethodImpl (MethodImplOptions.InternalCall)]
 		protected static extern void qt_standarditemmodel_data_row_col_set (IntPtr handle, int row, int col, string item);
