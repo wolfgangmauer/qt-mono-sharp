@@ -35,7 +35,7 @@ namespace Qt
 
 		void OnCurrentRowChanged(int currentRow, int previousRow)
   		{
-    			OnCurrentRowChanged?.Invoke(this, new CurrentChangedArgs(currentRow, previousRow));
+    			CurrentRowChanged?.Invoke(this, new CurrentChangedArgs(currentRow, previousRow));
     		}
   
 		[MethodImpl (MethodImplOptions.InternalCall)]
