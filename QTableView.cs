@@ -6,6 +6,7 @@ namespace Qt
 {
 	public class TableView : AbstractItemView
 	{
+ 		public event EventHandler<CurrentChangedArgs> CurrentChanged;
 		[MethodImpl (MethodImplOptions.InternalCall)]
 		protected static extern IntPtr qt_tableview_new (TableView thisObject, IntPtr parent);
 
@@ -20,8 +21,9 @@ namespace Qt
 			Raw = qt_tableview_new (this, parent != null ? parent.Handle : IntPtr.Zero);
 		}
 
-		public virtual void OnCurrentChanged(ModelIndex current, ModelIndex previous)
+		void OnCurrentChanged(ModelIndex current, ModelIndex previous)
   		{
+    			CurrentChanged?.Invoke(this, new CurrentChangedArgs(current, previous));
     		}
   
 		[MethodImpl (MethodImplOptions.InternalCall)]
