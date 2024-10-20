@@ -6,12 +6,12 @@ namespace Qt
 {
 	public class CurrentChangedArgs : EventArgs
  	{
-  		public ModelIndex Current { get; private set; }
-    		public ModelIndex Previous { get; private set; }
-  		public CurrentChangedArgs(ModelIndex current, ModelIndex previous)
+  		public int CurrentRow { get; private set; }
+    		public int PreviousRow { get; private set; }
+  		public CurrentChangedArgs(int currentRow, int previousRow)
     		{
-      			Current = current;
-	 		Previous = previous;
+      			CurrentRow = currentRow;
+	 		PreviousRow = previousRow;
       		}
   	}
    
@@ -32,9 +32,9 @@ namespace Qt
 			Raw = qt_tableview_new (this, parent != null ? parent.Handle : IntPtr.Zero);
 		}
 
-		void OnCurrentChanged(ModelIndex current, ModelIndex previous)
+		void OnCurrentChanged(int currentRow, int previousRow)
   		{
-    			CurrentChanged?.Invoke(this, new CurrentChangedArgs(current, previous));
+    			CurrentChanged?.Invoke(this, new CurrentChangedArgs(currentRow, previousRow));
     		}
   
 		[MethodImpl (MethodImplOptions.InternalCall)]
