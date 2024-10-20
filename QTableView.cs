@@ -20,6 +20,10 @@ namespace Qt
 			Raw = qt_tableview_new (this, parent != null ? parent.Handle : IntPtr.Zero);
 		}
 
+		void OnCurrentChanged(ModelIndex current, ModelIndex previous)
+  		{
+    		}
+  
 		[MethodImpl (MethodImplOptions.InternalCall)]
 		protected static extern IntPtr qt_tableview_horizontalheader_get (IntPtr raw);
 		public HeaderView HorizontalHeader {
