@@ -4,6 +4,17 @@ using System.Runtime.CompilerServices;
 
 namespace Qt
 {
+	public CurrentChangedArgs : EventArgs
+ 	{
+  		public ModelIndex Current { get; private set; }
+    		public ModelIndex Previous { get; private set; }
+  		public CurrentChangedArgs(ModelIndex current, ModelIndex previous)
+    		{
+      			Current = current;
+	 		Previous = previous;
+      		}
+  	}
+   
 	public class TableView : AbstractItemView
 	{
  		public event EventHandler<CurrentChangedArgs> CurrentChanged;
