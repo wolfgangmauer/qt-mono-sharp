@@ -17,7 +17,7 @@ namespace Qt
    
 	public class TableView : AbstractItemView
 	{
- 		public event EventHandler<CurrentChangedArgs> CurrentRowChanged;
+ 		public event EventHandler<CurrentRowChangedArgs> CurrentRowChanged;
    
 		[MethodImpl (MethodImplOptions.InternalCall)]
 		protected static extern IntPtr qt_tableview_new (TableView thisObject, IntPtr parent);
