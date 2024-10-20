@@ -20,7 +20,7 @@ namespace Qt
 			Raw = qt_tableview_new (this, parent != null ? parent.Handle : IntPtr.Zero);
 		}
 
-		void OnCurrentChanged(ModelIndex current, ModelIndex previous)
+		public virtual void OnCurrentChanged(ModelIndex current, ModelIndex previous)
   		{
     		}
   
