@@ -4,11 +4,11 @@ using System.Runtime.CompilerServices;
 
 namespace Qt
 {
-	public class CurrentChangedArgs : EventArgs
+	public class CurrentRowChangedArgs : EventArgs
  	{
   		public int CurrentRow { get; private set; }
     		public int PreviousRow { get; private set; }
-  		public CurrentChangedArgs(int currentRow, int previousRow)
+  		public CurrentRowChangedArgs(int currentRow, int previousRow)
     		{
       			CurrentRow = currentRow;
 	 		PreviousRow = previousRow;
@@ -35,7 +35,7 @@ namespace Qt
 
 		void OnCurrentRowChanged(int currentRow, int previousRow)
   		{
-    			CurrentRowChanged?.Invoke(this, new CurrentChangedArgs(currentRow, previousRow));
+    			CurrentRowChanged?.Invoke(this, new CurrentRowChangedArgs(currentRow, previousRow));
     		}
   
 		[MethodImpl (MethodImplOptions.InternalCall)]
