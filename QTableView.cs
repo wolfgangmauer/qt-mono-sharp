@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace Qt
 {
-	public CurrentChangedArgs : EventArgs
+	public class CurrentChangedArgs : EventArgs
  	{
   		public ModelIndex Current { get; private set; }
     		public ModelIndex Previous { get; private set; }
