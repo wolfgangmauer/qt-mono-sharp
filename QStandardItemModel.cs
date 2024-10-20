@@ -81,6 +81,13 @@ namespace Qt
 		{
 			return new ModelIndex(qt_standarditemmodel_index_get (Handle, row, col));
 		}
+  
+		[MethodImpl (MethodImplOptions.InternalCall)]
+		protected static extern void qt_standarditemmodel_clear(IntPtr handle);
+  		public void Clear()
+   		{
+     			qt_standarditemmodel_clear(Handle);
+     		}
 	}
 }
 
