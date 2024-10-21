@@ -167,7 +167,7 @@ namespace Qt
 
 		[MethodImpl (MethodImplOptions.InternalCall)]
 		protected static extern void qt_tableview_scrollto_index (IntPtr raw, IntPtr index, ScrollHint hint);
-		public void ScrollTo(QModelIndex index, ScrollHint hint = ScrollHint.EnsureVisible)
+		public void ScrollTo(ModelIndex index, ScrollHint hint = ScrollHint.EnsureVisible)
 		{
 			qt_tableview_scrollto_index (Handle, index.Handle, hint);
 		}
