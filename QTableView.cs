@@ -165,6 +165,12 @@ namespace Qt
 			qt_tableview_scrollto (Handle, row, col, hint);
 		}
 
+		[MethodImpl (MethodImplOptions.InternalCall)]
+		protected static extern void qt_tableview_scrollto_index (IntPtr raw, IntPtr index, ScrollHint hint);
+		public void ScrollTo(QModelIndex index, ScrollHint hint = ScrollHint.EnsureVisible)
+		{
+			qt_tableview_scrollto_index (Handle, index.Handle, hint);
+		}
 
 		[MethodImpl (MethodImplOptions.InternalCall)]
 		protected static extern int qt_tableview_rowheight_get (IntPtr raw, int row);
