@@ -65,5 +65,17 @@ namespace Qt
 		{
 			return new Rectangle (qt_tablewidget_visual_item_rect (Handle, item.Handle));
 		}
+  		[MethodImpl(MethodImplOptions.InternalCall)]
+		protected static extern void qt_tablewidget_clear (IntPtr raw);
+  		public void Clear()
+	    	{
+      			qt_tablewidget_clear(Handle);
+	    	}
+  		[MethodImpl(MethodImplOptions.InternalCall)]
+		protected static extern void qt_tablewidget_clear_contents (IntPtr raw);
+  		public void ClearContents()
+	    	{
+      			qt_tablewidget_clear_contents(Handle);
+	    	}
     }
 }
