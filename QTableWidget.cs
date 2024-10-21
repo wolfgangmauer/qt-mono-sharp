@@ -15,7 +15,7 @@ namespace Qt
     
     public class TableWidget : TableView
     {
-    	public event EventHandler<int> SelectionChangedEvent;
+    	public event EventHandler<SelectionChangedEventArgs> SelectionChangedEvent;
      
 	[MethodImpl(MethodImplOptions.InternalCall)]
 	protected static extern IntPtr qt_tablewidget_new(TableWidget thisObject, IntPtr parent);
