@@ -6,16 +6,16 @@ namespace Qt
 {
     public class SelectionChangedEventArgs : EventArgs
     {
-        public int Row { get; private set; }
-        public SelectionChangedEventArgs(int row)
+        public int CurrentRow { get; private set; }
+        public SelectionChangedEventArgs(int currentRow)
         {
-            Row = row;
+            CurrentRow = currentRow;
         }
     }
     
     public class TableWidget : TableView
     {
-    	public event EventHandler<SelectionChangedEventArgs> SelectionChangedEvent;
+    	public event EventHandler<SelectionChangedEventArgs> SelectionChanged;
      
 	[MethodImpl(MethodImplOptions.InternalCall)]
 	protected static extern IntPtr qt_tablewidget_new(TableWidget thisObject, IntPtr parent);
@@ -31,7 +31,7 @@ namespace Qt
 
 	void OnSelectionChanged(int row)
 	{
-		SelectionChangedEvent?.Invoke(this, new SelectionChangedEventArgs(row));
+		SelectionChanged?.Invoke(this, new SelectionChangedEventArgs(row));
 	}
 
 	[MethodImpl (MethodImplOptions.InternalCall)]
