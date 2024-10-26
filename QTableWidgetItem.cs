@@ -20,6 +20,8 @@ namespace Qt
 			Handle = qt_tablewidgetitem_new (text);
 		}
 
+		static TableWidgetItem CreateFromRaw(IntPtr raw) { return new TableWidgetItem(raw); }
+			
 		protected TableWidgetItem(IntPtr raw)
 		{
 			Handle = raw;
