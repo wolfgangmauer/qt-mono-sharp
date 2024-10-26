@@ -36,7 +36,7 @@ namespace Qt
 
 		protected Widget () { }
 
-		protected Widget (IntPtr raw) : base(raw) {	}
+		public Widget (IntPtr raw) : base(raw) {	}
 
 		protected Widget (Widget parent, string uiFile, WindowType f = 0) : base (IntPtr.Zero)
 		{
