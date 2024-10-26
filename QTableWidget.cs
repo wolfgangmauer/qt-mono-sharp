@@ -59,7 +59,7 @@ namespace Qt
     	public TableWidgetItem Item(int row, int col)
     	{
             IntPtr retVal = qt_tablewidget_row_col_get (Handle, row, col);
-    		return retVal != IntPtr.Zero ? new TableWidgetItem(retVal) : null;
+    		return retVal != IntPtr.Zero ? (TableWidgetItem)Object.GetObjectFromRaw(retVal) : null;
     	}
     
     	[MethodImpl (MethodImplOptions.InternalCall)]
@@ -100,7 +100,7 @@ namespace Qt
     	public Widget CellWidget(int row, int col)
     	{
             IntPtr retVal = qt_tablewidget_row_col_get_widget (Handle, row, col);
-    		return retVal != IntPtr.Zero ? new Widget(retVal) : null;
+    		return retVal != IntPtr.Zero ? (Widget)Object.GetObjectFromRaw(retVal) : null;
     	}
     
     	[MethodImpl (MethodImplOptions.InternalCall)]
