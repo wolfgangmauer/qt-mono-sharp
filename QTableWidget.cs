@@ -12,7 +12,7 @@ namespace Qt
             CurrentRow = currentRow;
         }
     }
-    
+   
     public class TableWidget : TableView
     {
     	public event EventHandler<SelectionChangedEventArgs> SelectionChanged;
