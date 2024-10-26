@@ -59,7 +59,7 @@ namespace Qt
     	public TableWidgetItem Item(int row, int col)
     	{
             IntPtr retVal = qt_tablewidget_row_col_get (Handle, row, col);
-    		return retVal != IntPtr.Zero ? new TableWidgetItem(retVal) : null;
+    		return retVal != IntPtr.Zero ? TableWidgetItem.CreateFromRaw(retVal) : null;
     	}
     
     	[MethodImpl (MethodImplOptions.InternalCall)]
