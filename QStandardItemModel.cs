@@ -51,10 +51,8 @@ namespace Qt
 		protected static extern IntPtr qt_standarditemmodel_item_row_col_get (IntPtr handle, int row, int col);
 		public StandardItem GetItem(int row, int col)
 		{
-  			var standardItemPtr = qt_standarditemmodel_item_row_col_get (Handle, row, col);
-     			if (standardItemPtr != IntPtr.Zero)
-				return new StandardItem(standardItemPtr);
-    			return null;
+  			var retVal = qt_standarditemmodel_item_row_col_get (Handle, row, col);
+			return retVal != IntPtr.Zero ? StandardItem.CreateFromRaw(retVal) : null;
 		}
 		[MethodImpl (MethodImplOptions.InternalCall)]
 		protected static extern string qt_standarditemmodel_data_row_col_get (IntPtr handle, int row, int col);
@@ -79,7 +77,8 @@ namespace Qt
 		protected static extern IntPtr qt_standarditemmodel_index_get(IntPtr handle, int row, int col);
 		public ModelIndex Index(int row, int col)
 		{
-			return new ModelIndex(qt_standarditemmodel_index_get (Handle, row, col));
+  			var retVal = qt_standarditemmodel_index_get (Handle, row, col);
+			return retVal != IntPtr.Zero ? ModelIndex.CreateFromRaw(retVal) : null;
 		}
   
 		[MethodImpl (MethodImplOptions.InternalCall)]
