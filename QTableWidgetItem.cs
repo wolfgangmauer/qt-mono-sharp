@@ -20,7 +20,7 @@ namespace Qt
 			Handle = qt_tablewidgetitem_new (text);
 		}
 
-		public TableWidgetItem(IntPtr raw)
+		protected TableWidgetItem(IntPtr raw)
 		{
 			Handle = raw;
 		}
