@@ -16,7 +16,9 @@ namespace Qt
 			raw = qt_standarditem_new (this, text);
 		}
 
-		public StandardItem (IntPtr raw)
+		public static CreateFromRaw(IntPtr raw) { return new StandardItem(raw); }
+		
+		protected StandardItem (IntPtr raw)
 		{
 			if (raw == IntPtr.Zero)
 				throw new ArgumentNullException(nameof(raw));
