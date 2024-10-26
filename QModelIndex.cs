@@ -7,7 +7,9 @@ namespace Qt
 	{
 		public IntPtr Handle { get ; private set; }
 
-		public ModelIndex (IntPtr raw)
+		public static ModelIndex CreateFromRaw(IntPtr raw) { return new ModelIndex(raw); }
+		
+		protected ModelIndex (IntPtr raw)
 		{
 			Handle = raw;
 		}
