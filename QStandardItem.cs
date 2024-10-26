@@ -16,7 +16,7 @@ namespace Qt
 			raw = qt_standarditem_new (this, text);
 		}
 
-		public static CreateFromRaw(IntPtr raw) { return new StandardItem(raw); }
+		public static StandardItem CreateFromRaw(IntPtr raw) { return new StandardItem(raw); }
 		
 		protected StandardItem (IntPtr raw)
 		{
