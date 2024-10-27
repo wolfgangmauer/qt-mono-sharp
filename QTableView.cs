@@ -187,10 +187,10 @@ namespace Qt
 		}
   		
     		[MethodImpl (MethodImplOptions.InternalCall)]
-		protected static extern int qt_tableview_move_cursor (IntPtr raw, int action);
-		public int MoveCursor(CursorAction action)
+		protected static extern int qt_tableview_move_cursor (IntPtr raw, int action, int modifiers);
+		public int MoveCursor(CursorAction action, KeyboardModifiers modifiers = KeyboardModifier.NoModifier)
   		{
-    			return qt_tableview_move_cursor(Handle, (int)action);
+    			return qt_tableview_move_cursor(Handle, (int)action, (int)modifiers);
     		}
 	}
 }
