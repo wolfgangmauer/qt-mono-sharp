@@ -11,19 +11,16 @@ namespace Qt
 			UserType = 1000
 		}
 
-		public IntPtr Handle { get ; private set; }
-
 		[MethodImpl (MethodImplOptions.InternalCall)]
 		protected static extern IntPtr qt_tablewidgetitem_new (string text);
 		public TableWidgetItem (string text)
 		{
-			Handle = qt_tablewidgetitem_new (text);
+  			if (Raw != IntPtr.Zero)
+				throw new ArgumentException ("Raw not null!");
+			Raw = qt_tablewidgetitem_new (text);
 		}
 			
-		protected TableWidgetItem(IntPtr raw)
-		{
-			Handle = raw;
-		}
+		protected TableWidgetItem(IntPtr raw) : base(raw) {}
 
 		[MethodImpl (MethodImplOptions.InternalCall)]
 		protected static extern string qt_tablewidgetitem_text_get (IntPtr raw);
