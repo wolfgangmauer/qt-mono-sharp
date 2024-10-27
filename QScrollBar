@@ -2,4 +2,7 @@ public class QScrollBar : AbstractSlider
 {
   public QScrollBar(Widget parent)
     : base(parent.Handle)
+  {
+  }
+
 }
