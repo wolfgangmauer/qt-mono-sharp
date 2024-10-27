@@ -190,7 +190,7 @@ namespace Qt
 		protected static extern IntPtr qt_tableview_move_cursor (IntPtr raw, CursorAction action);
 		ModelIndex MoveCursor(CursorAction action)
   		{
-    			return new ModelIndex(qt_itemview_move_cursor(Handle, action));
+    			return ModelIndex.CreateFromRaw(qt_itemview_move_cursor(Handle, action));
     		}
 	}
 }
