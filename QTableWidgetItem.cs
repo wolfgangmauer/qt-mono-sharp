@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace Qt
 {
-	public class TableWidgetItem
+	public class TableWidgetItem : Object
 	{
 		public enum ItemType
 		{
@@ -19,8 +19,6 @@ namespace Qt
 		{
 			Handle = qt_tablewidgetitem_new (text);
 		}
-
-		public static TableWidgetItem CreateFromRaw(IntPtr raw) { return new TableWidgetItem(raw); }
 			
 		protected TableWidgetItem(IntPtr raw)
 		{
