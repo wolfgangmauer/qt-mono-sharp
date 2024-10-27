@@ -1,4 +1,11 @@
-public abstract class AbstractSlider : Widget
+﻿using System;
+using System.IO;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+
+namespace Qt
+{
+	public abstract class AbstractSlider : Widget
 	{
 		protected AbstractSlider (IntPtr raw) : base (raw) { }
 
@@ -79,3 +86,4 @@ public abstract class AbstractSlider : Widget
 			}
 		}
 	}
+}
