@@ -56,6 +56,19 @@ namespace Qt
 			DragDrop,
 			InternalMove
 		}
+  		public enum CursorAction
+    		{
+      			MoveUp,
+	 		MoveDown,
+    			MoveLeft,
+       			MoveRight,
+                    	MoveHome,
+		     	MoveEnd,
+			MovePageUp,
+   			MovePageDown,
+                    	MoveNext,
+		     	MovePrevious 
+		};
 
 		public event EventHandler<ModelIndex> Pressed;
 		public event EventHandler<ModelIndex> Clicked;
@@ -79,6 +92,13 @@ namespace Qt
 //			Raw = qt_abstractitemview_new (parent != null ? parent.Handle : IntPtr.Zero);
 //		}
 
+		[MethodImpl (MethodImplOptions.InternalCall)]
+		protected static extern IntPtr qt_itemview_move_cursor (IntPtr handle, CursorAction action);
+		ModelIndex MoveCursor(CursorAction action)
+  		{
+    			return new ModelIndex(qt_itemview_move_cursor(Handle, action));
+    		}
+      
 		[MethodImpl (MethodImplOptions.InternalCall)]
 		protected static extern IntPtr qt_itemview_model_get (IntPtr parent);
 		[MethodImpl (MethodImplOptions.InternalCall)]
