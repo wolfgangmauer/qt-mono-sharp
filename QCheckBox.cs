@@ -7,7 +7,7 @@ namespace Qt
 {
 	public class CheckBox : AbstractButton
 	{
-		public CheckBox (IntPtr raw) : base(raw) {}
+		protected CheckBox (IntPtr raw) : base(raw) {}
 
 		[MethodImpl(MethodImplOptions.InternalCall)]
 		protected static extern IntPtr qt_checkbox_new_with_text (CheckBox thisObject, string text, IntPtr parent);
