@@ -93,13 +93,6 @@ namespace Qt
 //		}
 
 		[MethodImpl (MethodImplOptions.InternalCall)]
-		protected static extern IntPtr qt_itemview_move_cursor (IntPtr handle, CursorAction action);
-		ModelIndex MoveCursor(CursorAction action)
-  		{
-    			return new ModelIndex(qt_itemview_move_cursor(Handle, action));
-    		}
-      
-		[MethodImpl (MethodImplOptions.InternalCall)]
 		protected static extern IntPtr qt_itemview_model_get (IntPtr parent);
 		[MethodImpl (MethodImplOptions.InternalCall)]
 		protected static extern void qt_itemview_model_set (IntPtr parent, IntPtr item);
