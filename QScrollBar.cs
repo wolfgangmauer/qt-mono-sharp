@@ -5,13 +5,13 @@ using System.Runtime.CompilerServices;
 
 namespace Qt
 {
-  public class QScrollBar : AbstractSlider
+  public class ScrollBar : AbstractSlider
   {
-    protected QScrollBar (IntPtr raw) : base(raw) {}
+    protected ScrollBar (IntPtr raw) : base(raw) {}
   
       [MethodImpl(MethodImplOptions.InternalCall)]
       protected static extern IntPtr qt_scrollbar_new (ScrollBar thisObject, IntPtr parent);
-      public QScrollBar (Widget parent)
+      public ScrollBar (Widget parent)
           : base(IntPtr.Zero)
       {
           if (Raw != IntPtr.Zero)
