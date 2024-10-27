@@ -185,5 +185,12 @@ namespace Qt
 		{
 			qt_tableview_rowheight_set (Handle, row, height);
 		}
+  		
+    		[MethodImpl (MethodImplOptions.InternalCall)]
+		protected static extern IntPtr qt_tableview_move_cursor (IntPtr raw, CursorAction action);
+		ModelIndex MoveCursor(CursorAction action)
+  		{
+    			return new ModelIndex(qt_itemview_move_cursor(Handle, action));
+    		}
 	}
 }
