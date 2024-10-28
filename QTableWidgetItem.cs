@@ -14,10 +14,10 @@ namespace Qt
 		public IntPtr Handle { get ; private set; }
 		
 		[MethodImpl (MethodImplOptions.InternalCall)]
-		protected static extern IntPtr qt_tablewidgetitem_new (TableWidgetItem thisObject, string text);
+		protected static extern IntPtr qt_tablewidgetitem_new (string text);
 		public TableWidgetItem (string text)
 		{
-			Handle = qt_tablewidgetitem_new (this, text);
+			Handle = qt_tablewidgetitem_new (text);
 		}
 			
 		public TableWidgetItem(IntPtr raw) { Handle = raw; }
