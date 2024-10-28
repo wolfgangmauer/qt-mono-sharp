@@ -55,17 +55,17 @@ namespace Qt
     	}
     
     	[MethodImpl (MethodImplOptions.InternalCall)]
-    	protected static extern IntPtr qt_tablewidget_row_col_get (IntPtr handle, int row, int col);
+    	protected static extern IntPtr qt_tablewidget_row_col_item_get (IntPtr handle, int row, int col);
     	public TableWidgetItem Item(int row, int col)
     	{
-    		return new TableWidgetItem(qt_tablewidget_row_col_get (Handle, row, col));
+    		return new TableWidgetItem(qt_tablewidget_row_col_item_get (Handle, row, col));
     	}
     
     	[MethodImpl (MethodImplOptions.InternalCall)]
-    	protected static extern void qt_tablewidget_row_col_set (IntPtr handle, int row, int col, IntPtr item);
+    	protected static extern void qt_tablewidget_row_col_item_set (IntPtr handle, int row, int col, IntPtr item);
     	public void SetItem(int row, int col, TableWidgetItem item)
     	{
-    		qt_tablewidget_row_col_set (Handle, row, col, item.Handle);
+    		qt_tablewidget_row_col_item_set (Handle, row, col, item.Handle);
     	}
     
     	[MethodImpl(MethodImplOptions.InternalCall)]
