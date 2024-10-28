@@ -17,7 +17,7 @@ namespace Qt
 		protected static extern IntPtr qt_tablewidgetitem_new (string text);
 		public TableWidgetItem (string text)
 		{
-			Handle = qt_tablewidgetitem_new (text);
+			Handle = qt_tablewidgetitem_new (this, text);
 		}
 			
 		public TableWidgetItem(IntPtr raw) { Handle = raw; }
