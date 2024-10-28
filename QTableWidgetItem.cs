@@ -20,7 +20,7 @@ namespace Qt
 			Raw = qt_tablewidgetitem_new (text);
 		}
 			
-		protected TableWidgetItem(IntPtr raw) : base(raw) {}
+		public TableWidgetItem(IntPtr raw) : base(raw) {}
 
 		[MethodImpl (MethodImplOptions.InternalCall)]
 		protected static extern string qt_tablewidgetitem_text_get (IntPtr raw);
