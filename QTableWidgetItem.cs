@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace Qt
 {
-	public class TableWidgetItem : Object
+	public class TableWidgetItem
 	{
 		public enum ItemType
 		{
