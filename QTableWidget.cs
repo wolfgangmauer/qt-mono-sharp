@@ -58,8 +58,7 @@ namespace Qt
     	protected static extern IntPtr qt_tablewidget_row_col_get (IntPtr handle, int row, int col);
     	public TableWidgetItem Item(int row, int col)
     	{
-            IntPtr retVal = qt_tablewidget_row_col_get (Handle, row, col);
-    		return retVal != IntPtr.Zero ? new TableWidgetItem(retVal) : null;
+    		return new TableWidgetItem(qt_tablewidget_row_col_get (Handle, row, col));
     	}
     
     	[MethodImpl (MethodImplOptions.InternalCall)]
